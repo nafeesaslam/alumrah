@@ -1039,10 +1039,12 @@ button {
 
 .button-form {
   border: 1px solid #00b796 !important;
-  color: #303030; }
+  color:aliceblue; }
+
   .button-form:hover {
     background: transparent;
-    border-color: #00b796; }
+    border-color: #00b796;
+    color: #00b796 !important; }
 
 .button--active:hover {
   background: transparent;
