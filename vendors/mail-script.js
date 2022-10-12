@@ -16,11 +16,11 @@
             var settings = {
                 "async": true,
                 "crossDomain": true,
-                "url": "https://api.ultramsg.com/instance19769/messages/chat",
+                "url": "https://api.ultramsg.com/instance19949/messages/chat",
                 "method": "GET",
                 "headers": {},
                 "data": {
-                  "token": "kh6dgclz5k0tiwz1",
+                  "token": "2hg9pu5vhosg4ev1",
                   "to": "7001214053",
                   "body": `Name: ${name} \n Phone: ${phone} \n Email: ${email}`,
                   "priority": "{PRIORITY}",
