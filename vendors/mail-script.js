@@ -21,7 +21,7 @@
                 "headers": {},
                 "data": {
                   "token": "2hg9pu5vhosg4ev1",
-                  "to": "9289122741",
+                  "to": "8210739741",
                   "body": `Name: ${name} \n Phone: ${phone} \n Email: ${email}`,
                   "priority": "{PRIORITY}",
                   "referenceId": ""
