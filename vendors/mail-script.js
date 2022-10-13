@@ -12,25 +12,73 @@
             var phone = $("#phone").val();
             var email = $("#email").val();
             console.log(name,email,phone);
+            var mess = `Name: ${name} \n Phone: ${phone}, Email: ${email}`;
+            mess.toString();
 
-            var settings = {
-                "async": true,
-                "crossDomain": true,
-                "url": "https://api.ultramsg.com/instance19949/messages/chat",
-                "method": "GET",
-                "headers": {},
+            // var url = "https://graph.facebook.com/v14.0/112437674980577/messages";
+
+            // var xhr = new XMLHttpRequest();
+            // xhr.open("POST", url);
+
+            // xhr.setRequestHeader("Authorization", "Bearer EAAZAyUITb5QsBALK5UOcxaZAdZBC5c8h9RFIrXWyoRaBhfrNi6ohe3HmdPCqJCxH0sGR2r69HOu2OVZATZCZAAViC43lCezhaB631Phr9jyA87JXzFJQkeV4cNIzWgopPGa67DI3f4pFeTOSsUgXCKiZB9bK4Nr9s4Pu2xigaLPncg3AUN720CSbmcRNW09GE2jdSpHI1YfbITlWXLgGRne");
+            // xhr.setRequestHeader("Content-Type", "application/json");
+
+            // xhr.onreadystatechange = function () {
+            // if (xhr.readyState === 4) {
+            //     console.log(xhr.status);
+            //     console.log(xhr.responseText);
+            // }};
+
+            // var data = '{ "messaging_product": "whatsapp", "to": "917001214053", "type": "template", "template": { "name":'+"Name: " + name + "Phone: " + phone +', "language": { "code": "en_US" } } }';
+
+            // xhr.send(data);
+             var settings = {
+                 "async": true,
+                 "crossDomain": true,
+                 "url": "https://graph.facebook.com/v14.0/112437674980577/messages",
+                 "method": "POST",
+                 "Content-Type": "application/json",
+            
+                 "headers": {
+                    "Authorization": "Bearer EAAZAyUITb5QsBAJQkbnuT5m0eLFoW4Wl9BXydmL9sjvpE3MbxJZAjHUUu854SZAxogIMdnUhM4Bz6c9v3u5TWv31vDurKhqZAlZCY04AS26YHeNNjNWDKXlzuMdrVHGbe8nbsew0RbOcqXktsFcPRckwOJAKXwMdn7OAwd9EPCSi5vH6JZCzT6Q5Bj3rw8C0h5sqlXsRka8WQSF15ycOR0"
+                 },
                 "data": {
-                  "token": "2hg9pu5vhosg4ev1",
-                  "to": "8210739741",
-                  "body": `Name: ${name} \n Phone: ${phone} \n Email: ${email}`,
-                  "priority": "{PRIORITY}",
-                  "referenceId": ""
+                    "messaging_product": "whatsapp",
+                    "to": "917001214053",
+                    "type": "template",
+                    "template": { "name": "get_to_know", "language": { "code": "en_US" } ,
+                    "components": [
+                        {
+                            "type": "body",
+                            "parameters": [
+                                {
+                                    "type": "text",
+                                    "text": name
+                                },
+                                {
+                                    "type": "text",
+                                    "text": phone
+                                },
+                                {
+                                    "type": "text",
+                                    "text": email
+                                }
+                            ]
+                        }
+                    ]
+                }
+
+                //   "token": "kh6dgclz5k0tiwz1",
+                //   "to": "8210739741",
+                //   "body": `Name: ${name} \n Phone: ${phone} \n Email: ${email}`,
+                //   "priority": "{PRIORITY}",
+                //   "referenceId": ""
                 }
               }
               
               $.ajax(settings).done(function (response) {
                 console.log(response);  
-                if(response.message == "ok"){
+                if(response.messaging_product === "whatsapp"){
                     $("#name").val('');
                     $("#phone").val('');
                     $("#email").val('');
@@ -38,7 +86,7 @@
                 }else{
                     showErrorMessage();
                 }
-              });
+               });
 
 
 
