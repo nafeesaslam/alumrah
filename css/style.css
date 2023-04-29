@@ -380,14 +380,23 @@ button {
 .header-top {
   padding: 17px 0;
   border-bottom: 1px solid #F0F0F0; }
+  
   @media (min-width: 767px) {
     .header-top {
       padding: 27px 0; } }
   .header-top .logo {
     display: inline-block; }
+  
   @media (max-width: 767px) {
+    .header-top{
+      display: none;
+    }
     .header-top-info {
-      margin-bottom: 12px; } }
+      margin-bottom: 12px; } 
+    .main_menu #logo-mini{
+      display: block !important;
+    }
+    }
   .header-top-info:last-child {
     margin-bottom: 0; }
   .header-top-info__icon {
@@ -479,7 +488,17 @@ button {
       box-shadow: none; }
     @media (max-width: 375px) {
       .footer-area .single-footer-widget .click-btn {
-        margin-top: 10px; } }
+        margin-top: 10px; } 
+      .home-banner-area{
+        max-height: 350px !important;
+      }
+      .home-banner-area .home-banner{
+        top: 30% !important;
+      }
+      .text-center h3{
+        font-size: 1.15rem;
+      }
+    }
     @media (min-width: 400px) {
       .footer-area .single-footer-widget .click-btn {
         left: -50px; } }
@@ -538,7 +557,7 @@ button {
         margin-bottom: 45px; } }
   .home-banner-area {
     height: 500px;
-    background: url("../img/home/header-bg2.jpeg") center center no-repeat;
+    /* background: url("../img/home/header-bg2.jpeg") center center no-repeat; */
     background-size: cover;
     position: relative;
     z-index: 1; }
@@ -1889,5 +1908,8 @@ button {
     /* Firefox 18- */
     font-size: 13px;
     color: #777; }
+  .main_menu #logo-mini{
+    display: none;
+  }
 
 /*============ End Blog Single Styles  =============*/

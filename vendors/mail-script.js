@@ -15,6 +15,16 @@
             var mess = `Name: ${name} \n Phone: ${phone}, Email: ${email}`;
             mess.toString();
 
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                // Typical action to be performed when the document is ready:
+                document.getElementById("demo").innerHTML = xhttp.responseText;
+                }
+            };
+            xhttp.open("GET", "newMail.php", true);
+            xhttp.send();
+
             // var url = "https://graph.facebook.com/v14.0/112437674980577/messages";
 
             // var xhr = new XMLHttpRequest();
@@ -40,7 +50,7 @@
                  "Content-Type": "application/json",
             
                  "headers": {
-                    "Authorization": "Bearer EAAZAyUITb5QsBANhaCNweQVjTEfHByLUdrX1r15MYexaUA0cxrsO4MOiCMdZABnrTvwtCIYeNfpDEOgHGZBUDZBogMS4y4OLlQFJO3jZAOjSqFceGOCGxIVqMwwdaAC6Wsjka6pFTH5X692fU6zCPS3l78poKCIDelthuEQbOJ5asPp2EkJVLMZA6zGw8nYWV5HLEF0McEeNI1M76hKL7b"
+                    "Authorization": "Bearer EAAZAyUITb5QsBAPIWfRHA8JzjZBDGuSfABOZCdMX40UuxcVJJt8Paet8w7ZBttgvybu0z13lHcZCqYDDZBNiqDDGTxXvZCShbjdxfVWHrkWJJlDh8NC4HH5f41G2YDWg03IZBOntK4LGq5As02IINNOYfPEu6Hqs4SSL56oEdg143SVTeiFT803iEQCcgSxWYtZCJNQ17u726anxAPprJ6sbo"
                  },
                 "data": {
                     "messaging_product": "whatsapp",
@@ -151,4 +161,6 @@
                 $("#errorMessage").hide();
             }, 5000);
         }
+
+        
     });
